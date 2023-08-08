@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="R"> Nhập vào R!
+<br>
+<input type="text" id="kp"> Bán Kính Hình Tròn!
+<br>
+<button onclick="banKinh()"> Nhấn Nút!</button>
+<script>
+    function banKinh() {
+        let R = document.getElementById('R').value;
+        let C = (R*2)*3.14;
+        document.getElementById('kp').value = C;
+    }
+</script>
+</body>
+</html>

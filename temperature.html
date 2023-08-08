@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="doF"> Nhập độ F!
+<input type="text" id="kp"> Kết quả độ C!
+<button onclick="temperature()"> Nhấn!</button>
+<script>
+    function temperature() {
+        let Tem = document.getElementById('doF').value;
+        let doC = 5 / 9 * (Tem - 32);
+        document.getElementById('kp').value = doC;
+    }
+</script>
+
+</body>
+</html>

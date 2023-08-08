@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="calculator">
+    <input id="display" type="text" disabled style="width: 100px">
+    <table>
+        <tr>
+            <td><button onclick="appendNumber('7')">7</button></td>
+            <td><button onclick="appendNumber('8')">8</button></td>
+            <td><button onclick="appendNumber('9')">9</button></td>
+            <td><button onclick="appendOperator('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendNumber('4')">4</button></td>
+            <td><button onclick="appendNumber('5')">5</button></td>
+            <td><button onclick="appendNumber('6')">6</button></td>
+            <td><button onclick="appendOperator('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendNumber('1')">1</button></td>
+            <td><button onclick="appendNumber('2')">2</button></td>
+            <td><button onclick="appendNumber('3')">3</button></td>
+            <td><button onclick="appendOperator('*')">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="appendNumber('0')">0</button></td>
+            <td><button onclick="clearDisplay()">C</button></td>
+            <td><button onclick="calculate()">=</button></td>
+            <td><button onclick="appendOperator('/')">/</button></td>
+        </tr>
+    </table>
+</div>
+<script>
+    let currentInput = "";
+    let currentOperator = "";
+    let currentValue = null;
+
+    const display = document.getElementById("display");
+
+    function appendNumber(number) {
+        currentInput += number;
+        display.value = currentInput;
+    }
+
+    function appendOperator(operator) {
+        if (currentInput !== "") {
+            if (currentValue === null) {
+                currentValue = parseFloat(currentInput);
+            } else {
+                currentValue = operate(currentValue, parseFloat(currentInput), currentOperator);
+            }
+            currentInput = "";
+            currentOperator = operator;
+            display.value = currentValue;
+        }
+    }
+
+    function calculate() {
+        if (currentInput !== "") {
+            if (currentValue !== null) {
+                currentValue = operate(currentValue, parseFloat(currentInput), currentOperator);
+                display.value = currentValue;
+            }
+            currentInput = "";
+            currentOperator = "";
+        }
+    }
+
+    function clearDisplay() {
+        currentInput = "";
+        currentOperator = "";
+        currentValue = null;
+        display.value = "";
+    }
+
+    function operate(a, b, operator) {
+        switch (operator) {
+            case "+":
+                return a + b;
+            case "-":
+                return a - b;
+            case "*":
+                return a * b;
+            case "/":
+                return a / b;
+            default:
+                return b;
+        }
+    }
+</script>
+</body>
+</html>

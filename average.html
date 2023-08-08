@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="diemToan"> ĐIỂM TOAN
+<br>
+<input type="text" id="diemLy"> ĐIỂM LY
+<br>
+<input type="text" id="diemHoa"> ĐIỂM HOA
+<br>
+<input type="text" id="diemTbm">ĐIỂM TRUNG BÌNH
+<br>
+<input type="text" id="diemTong"> TỔNG ĐIỂM
+<br>
+<button onclick="Sum()" id="a">
+    Nút Nhấn!
+</button>
+<script>
+    function Sum() {
+        let diemToan = +document.getElementById('diemToan').value;
+        let diemLy = +document.getElementById('diemLy').value;
+        let diemHoa = +document.getElementById('diemHoa').value;
+        let diemTong =(diemToan + diemHoa + diemLy)
+        let diemTb = diemTong/3;
+        document.getElementById('diemTbm').value = diemTb;
+        document.getElementById('diemTong').value = diemTong;
+    }
+</script>
+</body>
+</html>
